@@ -1,0 +1,10 @@
+language: generic 
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t kesavanpalani/docker-react-tutorial -f frontend/Dockerfile.dev .
+
+scripts:
+  - docker run -e CI=true kesavanpalani/docker-react-tutorial npm run test
